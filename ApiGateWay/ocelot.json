@@ -1,0 +1,53 @@
+{
+  "Aggregates": [
+    {
+      "UpstreamPathTemplate": "/api/UsersPosts",
+      "RouteKeys": [ "users", "posts" ],
+      "Aggregator": "UsersPostsAggregator"
+    }
+  ],
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/users",
+      "upstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/users",
+      "key": "users"
+    },
+
+    {
+      "UpstreamPathTemplate": "/api/posts",
+      "upstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/posts",
+      "key": "posts"
+    },
+
+    {
+      "UpstreamPathTemplate": "/Seguridad_v2/cenares/wms/api/v1/auth/authenticate",
+      "upstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.10.71",
+          "Port": 5005
+        }
+      ],
+      "DownstreamPathTemplate": "/logintoken",
+      "key": "LoginToken"
+    }
+  ]
+  ,
+  "GlobalConfiguration": {
+    "BaseUrl": "http://192.168.10.71:5005"
+  }
+}
